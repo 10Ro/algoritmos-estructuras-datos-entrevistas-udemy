@@ -1,5 +1,8 @@
 package com.danielblanco.algoritmosestructuras.arraysstringshashtables._02_two_sum;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /*
  * Dado un array de números enteros y un target, retorna los índices de dos
  * números para los que la suma de ambos sea igual al target.
@@ -18,6 +21,17 @@ package com.danielblanco.algoritmosestructuras.arraysstringshashtables._02_two_s
 public class TwoSum {
 
   public int[] twoSum(int[] nums, int target) {
-    throw new UnsupportedOperationException("Not implemented yet");
+    if (nums == null || nums.length <= 1)
+      return null;
+
+    Map<Integer, Integer> compMap = new HashMap<>();
+    for (int i = 0; i < nums.length; i++) {
+      if (compMap.containsKey(nums[i]))
+        return new int[] { compMap.get(nums[i]), i };
+      int complement = target - nums[i];
+      compMap.put(complement, i);
+    }
+    return null;
   }
+
 }
