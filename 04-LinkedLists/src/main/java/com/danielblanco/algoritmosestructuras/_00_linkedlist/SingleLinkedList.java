@@ -17,7 +17,8 @@ public class SingleLinkedList {
   }
 
   public void deleteNode(int value) {
-    if (head == null) return;
+    if (head == null)
+      return;
 
     if (head.value == value) {
       head = head.next;
